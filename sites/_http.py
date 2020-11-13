@@ -5,15 +5,6 @@ from fake_useragent import UserAgent
 from sites.proxy import ProxyPool
 from settings import COOKIE_ENABLED, COOKIE, REQUEST_MOTHOD_MODE
 
-class ExpectError(Exception):
-    pass
-
-class RATE_LIMIT_ERROR(Exception):
-    pass
-
-class USAGE_LIMIT_ERROR(Exception):
-    pass
-
 
 class Crawler:
 
@@ -78,8 +69,6 @@ class Crawler:
         if response is None:
             return self.get_0(url)
 
-
-
     @staticmethod
     def get(self):
         return {
@@ -90,6 +79,5 @@ class Crawler:
 
 
 if __name__ == '__main__':
-   c = Crawler()
-   c.test()
+   pass
 

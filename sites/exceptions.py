@@ -3,6 +3,7 @@
     多用于spider类中进行抛出，BaseEngine类中进行捕获
 """
 
+
 class BAD_URL_ERROR(Exception):
     pass
 
