@@ -50,7 +50,7 @@ class DemoSpider:
                 update_dict={
                     "Status": 1
                 },
-                projection=["Category", "Period"]
+                projection=["a"]
             )
             if orig_item is None:
                 break
@@ -71,25 +71,8 @@ class DemoSpider:
 
         for data in dataset:
             r = {
-                "ProductType": "Goods",
-                "Category": orig_item["Category"],
-                "CommodityCode": data["cmdCode"],
-                "CommodityDescribe": data["cmdDescE"],
-                "AggrLevel": data["aggrLevel"],
-                "Freq": orig_item["Freq"],
-                "Year": data["yr"],
-                "Period": data["period"],
-                "TradeFlowCode": data["rgCode"],
-                "TradeFlow": data["rgDesc"],
-                "PartnerCode": data["ptCode"],
-                "Partner": data["ptTitle"],
-                "ReporterCode": data["rtCode"],
-                "Reporter": data["rtTitle"],
-                "NetWeight": data["NetWeight"],
-                "TradeValue": data["TradeValue"],
-                "TradeQuantity": data["TradeQuantity"],
-                "TradeQuantityUnit": data["qtDesc"],
-                "Flag": data["estCode"],
+                "a": orig_item["a"],
+                "b": data["b"],
             }
             parse_results.append(r)
         return parse_results

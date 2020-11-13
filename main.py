@@ -68,7 +68,7 @@ class Scheduler():
 
 if __name__ == '__main__':
 
-    modes = ["mark_img"]
+    modes = ["demo"]
     scheduler = Scheduler()
     scheduler.run(modes)
 
