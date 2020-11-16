@@ -26,7 +26,7 @@ class DemoSpider:
 
         # 定义采集， 解析，存储的线程数
         self.crawler = Crawler()
-        # # 默认fetch 的线程数是 1，因为我们发现 fetch往往不是瓶颈
+        # 默认 fetch 线程数是 1，因为我们发现 fetch往往不是瓶颈
         self.t_fetch_number = 1
         self.t_crawl_number = 30
         self.t_parse_number = 1
@@ -63,8 +63,6 @@ class DemoSpider:
         return resp
 
     def parse(self, orig_item, response):
-        # 判断图片流是否正确完整
-        # 返回值为列表
         # print(response.text)
         parse_results = []
         dataset = response.json()["dataset"]
