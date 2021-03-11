@@ -23,7 +23,7 @@
 
 网址： [https://movie.douban.com/typerank?type_name=%E5%96%9C%E5%89%A7&type=24&interval_id=100:90&action=](https://movie.douban.com/typerank?type_name=喜剧&type=24&interval_id=100:90&action=)
 
-<img src=".\image\03.png" alt="03" style="zoom: 67%;" />
+<img src="https://github.com/Dalabengba-L/spiderware/blob/master/image/03.png" alt="03" style="zoom: 67%;" />
 
 Mongo中间表:  DownLoadList
 
@@ -37,7 +37,7 @@ if __name__ == '__main__':
 
 
 
-<img src=".\image\01.png" alt="01"  />
+<img src="https://github.com/Dalabengba-L/spiderware/blob/master/image/01.png" alt="01"  />
 
 Mongo 数据表: BasicData
 
@@ -51,7 +51,7 @@ if __name__ == '__main__':
 
 
 
-<img src=".\image\02.png" alt="02"/>
+<img src="https://github.com/Dalabengba-L/spiderware/blob/master/image/02.png" alt="02"/>
 
 
 
