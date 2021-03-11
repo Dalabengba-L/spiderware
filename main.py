@@ -4,7 +4,7 @@ import schedule
 
 from engine import Engine
 from sites.utils import _awrite
-from spider import demo
+from spiders import comedy
 
 
 class Scheduler():
@@ -12,7 +12,7 @@ class Scheduler():
     def __init__(self):
         self.project_name = "Mark IMAGE"
         self.collect_map = {
-            "demo": demo.DemoSpider,
+            "comedy": comedy.ComedySpider,
         }
         self.log_filename = "result.txt"
 
@@ -68,7 +68,7 @@ class Scheduler():
 
 if __name__ == '__main__':
 
-    modes = ["demo"]
+    modes = ["comedy"]
     scheduler = Scheduler()
     scheduler.run(modes)
 

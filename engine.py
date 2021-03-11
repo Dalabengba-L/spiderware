@@ -1,5 +1,5 @@
 from sites.base import BaseEngine
-from spider.demo import DemoSpider
+from spiders.comedy import ComedySpider
 
 
 class Engine(BaseEngine):
@@ -7,5 +7,5 @@ class Engine(BaseEngine):
 
 
 if __name__ == '__main__':
-    engine = Engine(spider_cls=DemoSpider)
+    engine = Engine(spider_cls=ComedySpider)
     engine.run()

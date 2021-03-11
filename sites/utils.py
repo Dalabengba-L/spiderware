@@ -2,6 +2,8 @@ import json
 import queue
 import threading
 import time
+import pymongo
+import pymongo.errors
 from threading import Thread, Event
 
 
@@ -124,3 +126,34 @@ def json_read(filename):
 def json_write(filename, data):
     with open(filename, "w", encoding="utf-8") as f:
         return json.dump(data, f, indent=4, ensure_ascii=False)
+
+def json_awrite(filename, data):
+    with open(filename, "a", encoding="utf-8") as f:
+        f.write("%s" % time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+        result = json.dump(data, f, indent=4, ensure_ascii=False)
+        f.write("\n")
+        return result
+
+is_none = lambda r: r is None
+
+
+def _insert_many(collection, items_list):
+    Cnt = 0
+    Err = 0
+    for item in items_list:
+        try:
+            collection.insert_one(item)
+            Cnt += 1
+        except (pymongo.errors.DuplicateKeyError, pymongo.errors.BulkWriteError):
+            Err += 1
+    return Cnt
+
+
+def _insert_one(collection, item_dict):
+
+    try:
+        collection.insert_one(item_dict)
+        return 1
+
+    except (pymongo.errors.DuplicateKeyError, pymongo.errors.BulkWriteError):
+        return 0

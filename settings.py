@@ -14,20 +14,20 @@ Q_PAGE_SIZE = 10
 # 数据存储
 Q_DATA_SIZE = 100
 
-# 数据采集完毕之后，发送SIGNAL_END来终止程序
-SIGNAL_END = None
 
 # 有关数据库的服务器信息
 # MONGO ===========================================================
 # mongo 普通表
-MONGO_META_URL = "mongodb://xx:27017/"
+MONGO_META_URL = "mongodb://127.0.0.1:27017/"
 # mongo 附件表
-MONGO_ANNEX_URL = "mongodb://xx:27017/"
+# MONGO_ANNEX_URL = "mongodb://127.0.0.1:27017/"
 
 # 库
-MONGO_DB = ""
+MONGO_DB_NAME = "DouBan_Comedy"
 # 表
-MONGO_COLLECTION = ""
+MONGO_TABLE_NAME = "DownloadList"
+MONGO_DATA_TABLE_NAME = "BasicData"
+
 # =================================================================
 
 
@@ -47,8 +47,9 @@ MYSQL_DBNAME = 'xx'
 
 
 # REDIS ===========================================================
-# 通常用来连接代理池
+# 代理池
 REDIS_HOST = 'xx.xx.xx.xx'
+
 REDIS_PORT = 6379
 # 短效代理
 SHORT_REDIS_DB = 0
@@ -72,24 +73,18 @@ STATUS_DEFAULT = 0
 STATUS_TAKEAWAY = 1
 # 该数据处理结果成功
 STATUS_SUCCESS = 2
+# 采集解析存储异常
+STATUS_ERROR = 3
+# 其他状态字段可自定义， 建议通过异常来匹配
 
-# 详情页爬取异常
-STATUS_ERROR_CRAWL = 3
-# 页面解析异常
-STATUS_ERROR_PARSE = 4
-# 页面存储异常
-STATUS_ERROR_STORE = 5
-
-# 以下状态我们是可以预期的
-# 重复抓取
-STATUS_ERROR_REPEAT = 6
-# 响应成功，但是数据为空
-STATUS_EMPTY_PARSE = 7
-# 用来采集的 URL 不合法
-STATUS_BAD_URL = 8
-
-STATUS_BAD_ORIG = 9
 # =================================================================
+"""
+REQUEST_MOTHOD_MODE： 
+    0: 只使用本地地址
+    1: 只使用代理
+    2: 优先使用代理，如果代理出错， 使用本地地址
+"""
+REQUEST_MOTHOD_MODE = 2
 
-# REQUEST_MOTHOD_MODE： 0 只使用本地地址, 1 尽可能使用代理  会因为代理的不稳定，造成失败的概率增大, 2 优先使用代理，如果代理出错， 使用本地地址
-REQUEST_MOTHOD_MODE = 1
+# # 单次采集程序(单次采集程序内部已经尝试多次)执行完毕，但是结果失败之后的重试次数
+CRAWL_TRY_COUNTER= 6

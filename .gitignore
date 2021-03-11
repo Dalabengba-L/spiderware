@@ -15,3 +15,5 @@ __pycache__/
 
 # add
 .idea/
+
+log/

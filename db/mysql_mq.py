@@ -9,8 +9,8 @@
     sql = "select pk, countryKey, attr, url, status from %s where status = 0 order by pk limit 1 for update;" % MYSQL_TABLE
 """
 import pymysql
-
 from dbutils.pooled_db import PooledDB
+
 from settings import MYSQL_HOST, MYSQL_DBNAME, MYSQL_PASS, MYSQL_PORT, MYSQL_USER
 
 # 数据库连接编码

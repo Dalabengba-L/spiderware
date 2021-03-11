@@ -22,7 +22,8 @@ class ProxyPool:
             max_connections=5
         )
         # 短效代理的长度
-        self.SHORT_POOL_LEN = 30 # [1, 30]
+        self.SHORT_POOL_LEN = 5 # [1, 30]
+
 
     def get_order_proxy(self, order):
         """从短效代理池中获取指定order的代理"""
@@ -42,6 +43,7 @@ class ProxyPool:
         conn = redis.Redis(connection_pool=self.long_redis_pool, decode_responses=True)
         try:
             proxy = conn.get("IP1")
+            # print(proxy)
             # 返回 value 的 字节类型，或者 None
             return proxy.decode("utf-8") if proxy else None
 
@@ -49,9 +51,12 @@ class ProxyPool:
             conn.close()
 
     def random(self):
+        # order = random.choice(range(1, self.SHORT_POOL_LEN + 1))
         order = random.choice(range(self.SHORT_POOL_LEN + 1))
+        # order = 0
         if order == 0:
             return self.get_long_proxy()
+
         return self.get_order_proxy(order)
 
     def get(self):
